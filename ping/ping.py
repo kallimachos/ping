@@ -21,20 +21,34 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
+from datetime import datetime
+from requests import get
+from time import sleep
 
-def square(x):
-    """Square x.
-
-    :param x: number to square
-    :type x: int
-    :returns: square of x
-    :rtype: int
-
-    >>> square(5)
-    25
-    """
-    return x * x
+try:
+    if get("https://8.8.8.8"):
+        print(f"Pass: {datetime.now()}")
+        time = False
+    else:
+        print(f"Fail: {datetime.now()}")
+        time = True
+except Exception:
+    print(f"Fail: {datetime.now()}")
+    time = True
 
 
-if __name__ == "__main__":
-    print(square(5))
+while True:
+    try:
+        if get("https://8.8.8.8"):
+            if time is True:
+                print(f"Pass: {datetime.now()}")
+                time = False
+        else:
+            if time is False:
+                print(f"Fail: {datetime.now()}")
+                time = True
+        sleep(10)
+    except Exception:
+        if time is False:
+            print(f"Fail: {datetime.now()}")
+            time = True
