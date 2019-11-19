@@ -1,0 +1,7 @@
+black
+flake8-docstrings
+isort
+pytest
+pytest-cov
+pytest-flake8
+requests

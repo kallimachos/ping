@@ -22,8 +22,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
 from datetime import datetime
-from requests import get
 from time import sleep
+
+from requests import get
 
 try:
     if get("https://8.8.8.8"):
