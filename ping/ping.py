@@ -10,29 +10,41 @@ from requests import get
 import sms
 
 
+def print_write(msg):
+    """Write message to result file."""
+    print(msg)
+    with open("result.txt", "a") as f:
+        f.write(f"{msg}\n")
+    return
+
+
 def ping():
     """Test internet connection."""
+    passmsg = f"Pass: {datetime.now()}"
+    failmsg = f"Fail: {datetime.now()}"
     try:
         if get("https://8.8.8.8"):
-            print(f"Pass: {datetime.now()}")
+            print(passmsg)
             time = False
         else:
-            print(f"Fail: {datetime.now()}")
+            print_write(failmsg)
             time = True
     except Exception:
-        print(f"Fail: {datetime.now()}")
+        print_write(failmsg)
         time = True
 
     while True:
+        passmsg = f"Pass: {datetime.now()}"
+        failmsg = f"Fail: {datetime.now()}"
         try:
             if get("https://8.8.8.8"):
                 if time is True:
-                    print(f"Pass: {datetime.now()}")
+                    print_write(passmsg)
                     sms.send_sms("Internet is up.")
                     time = False
             else:
                 if time is False:
-                    print(f"Fail: {datetime.now()}")
+                    print_write(failmsg)
                     time = True
             sleep(10)
         except KeyboardInterrupt:
@@ -40,7 +52,7 @@ def ping():
             return
         except Exception:
             if time is False:
-                print(f"Fail: {datetime.now()}")
+                print_write(failmsg)
                 time = True
     return
 
