@@ -35,10 +35,14 @@ def ping():
                     print(f"Fail: {datetime.now()}")
                     time = True
             sleep(10)
+        except KeyboardInterrupt:
+            print()
+            return
         except Exception:
             if time is False:
                 print(f"Fail: {datetime.now()}")
                 time = True
+    return
 
 
 if __name__ == "__main__":
