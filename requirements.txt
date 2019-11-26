@@ -1,10 +1,10 @@
 black
-dotenv
 flake8-docstrings
 GitPython
 isort
 pytest
 pytest-cov
 pytest-flake8
+python-dotenv
 requests
 twilio
