@@ -13,7 +13,7 @@ import sms
 def print_write(msg):
     """Write message to result file."""
     print(msg)
-    with open("result.txt", "a") as f:
+    with open("results.txt", "a") as f:
         f.write(f"{msg}\n")
     return
 
