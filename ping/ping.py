@@ -3,8 +3,10 @@
 """Test internet connection."""
 
 from datetime import datetime
+from os import path
 from time import sleep
 
+from git import Repo
 from requests import get
 
 import sms
@@ -13,7 +15,9 @@ import sms
 def print_write(msg):
     """Write message to result file."""
     print(msg)
-    with open("results.txt", "a") as f:
+    repo_root = Repo(".", search_parent_directories=True).working_tree_dir
+    filepath = path.abspath(path.join(repo_root, "ping/results.txt"))
+    with open(filepath, "a") as f:
         f.write(f"{msg}\n")
     return
 
@@ -24,7 +28,7 @@ def ping():
     failmsg = f"Fail: {datetime.now()}"
     try:
         if get("https://8.8.8.8"):
-            print(passmsg)
+            print_write(passmsg)
             time = False
         else:
             print_write(failmsg)

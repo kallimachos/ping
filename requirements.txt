@@ -1,6 +1,7 @@
 black
 dotenv
 flake8-docstrings
+GitPython
 isort
 pytest
 pytest-cov
