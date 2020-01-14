@@ -9,7 +9,7 @@ from time import sleep
 
 from requests import get
 
-import sms
+# import sms
 
 
 def print_write(msg):
@@ -43,7 +43,7 @@ def ping():
             if get("https://8.8.8.8"):
                 if time is True:
                     print_write(passmsg)
-                    sms.send_sms("Internet is up.")
+                    # sms.send_sms("Internet is up.")
                     time = False
             else:
                 if time is False:
