@@ -3,6 +3,7 @@
 """Run speedtest-cli and print result."""
 
 import subprocess
+from yaspin import yaspin
 
 
 def speedtest():
@@ -18,5 +19,7 @@ def speedtest():
 
 
 if __name__ == "__main__":
-    response = speedtest()
-    print(response)
+    with yaspin(text=f"Running speedtest", color="green") as spinner:
+        response = speedtest()
+        spinner.ok()
+    print(f"\n{response}")
