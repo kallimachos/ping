@@ -11,7 +11,7 @@ def speedtest():
     """Run speedtest."""
     response = (
         subprocess.Popen(
-            "/usr/local/bin/speedtest-cli --simple", shell=True, stdout=subprocess.PIPE
+            "speedtest-cli --simple", shell=True, stdout=subprocess.PIPE
         )
         .stdout.read()
         .decode("utf-8")
