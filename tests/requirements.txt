@@ -1,0 +1,6 @@
+black
+deptry
+mypy
+pytest
+pytest-cov
+ruff

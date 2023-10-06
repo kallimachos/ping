@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """Send an email. Note: requires a running smtp server on localhost."""
 
 import smtplib
 from email.message import EmailMessage
 
 
-def send_email(msg):
+def send_email(text: str) -> None:
     """Send an email."""
     msg = EmailMessage()
-    msg.set_content(msg)
+    msg.set_content(text)
     msg["Subject"] = "An email message"
     msg["From"] = "kallimachos@gmail.com"
     msg["To"] = "kallimachos@gmail.com"

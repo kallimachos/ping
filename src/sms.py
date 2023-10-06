@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """Send an sms using Twilio."""
 
 from os import getenv
@@ -14,7 +13,7 @@ twilio_num = getenv("TWILIO_NUM")
 mobile_num = getenv("MOBILE_NUM")
 
 
-def send_sms(msg):
+def send_sms(msg: str) -> str:
     """Send an sms."""
     client = Client(twilio_sid, twilio_token)
     message = client.messages.create(body=msg, from_=twilio_num, to=mobile_num)
