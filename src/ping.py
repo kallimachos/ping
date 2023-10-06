@@ -35,7 +35,7 @@ def ping() -> None:
                 elif failing is False:
                     print_write(failmsg)
                     failing = True
-                sleep(10)
+                sleep(1)
             except KeyboardInterrupt:
                 print()
                 return
